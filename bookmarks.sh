@@ -20,7 +20,7 @@ function _bookmark_usage() {
 
 	if [ $# -eq 0 ]; then
 		echo -en "${commands[@]}\n\n"
-		_bookmark_usage "${commands[@]}"
+		_bookmark_usage "${commands[@]}" | ${PAGER:-less}
 		return 0
 	fi
 
