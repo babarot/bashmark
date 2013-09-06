@@ -1,6 +1,6 @@
 # Description
 
-*bookmarks is a shell script that allows you to save and jump to commonly used directories. Now supports tab completion.  
+*This is a shell script that allows you to save and jump to commonly used directories. Now supports tab completion.  
 Please try it for a day, and you will find it very effective.*
 
 # Features
@@ -13,7 +13,7 @@ Please try it for a day, and you will find it very effective.*
 	$ git clone git://github.com/b4b4r07/shellmark.git
 	$ make install
 
-**Enable bookmarks.sh requires restart your bash**
+**Enable shellmark.sh requires restart your bash**
 
 # Usage
 
