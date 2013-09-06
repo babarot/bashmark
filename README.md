@@ -10,14 +10,14 @@ Please try it for a day, and you will find it very effective.*
 
 # Installation
 
-	$ git clone git://github.com/b4b4r07/bookmarksh.git
+	$ git clone git://github.com/b4b4r07/shellmark.git
 	$ make install
 
 **Enable bookmarks.sh requires restart your bash**
 
 # Usage
 
-`$ bookmark | less`
+`$ shellmark | less`
 
 # License
 
