@@ -1,5 +1,5 @@
 INSTALL_DIR=~/.local/bin
-INSTALL_FILE="shellmark.sh"
+INSTALL_FILE="bashmark.sh"
 
 all:
 	@echo "Please run 'make install'"

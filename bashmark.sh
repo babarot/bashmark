@@ -327,7 +327,7 @@ function _bookmark_complement() {
 
 [ -d $bookmarkdir ] && unset _bookmark_initialize || _bookmark_initialize
 
-alias shellmark='_bookmark_usage'
+alias bashmark='_bookmark_usage'
 alias show='_bookmark_show'
 alias reg='_bookmark_regist'
 alias go='_bookmark_go'
