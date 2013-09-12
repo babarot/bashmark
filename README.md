@@ -17,7 +17,49 @@ Please try it for a day, and you will find it very effective.*
 
 # Usage
 
+**How to use bashmark**
+
 `$ bashmark | less`
+
+### show - display your bookmark
+
+	$ show
+	bin            ~/.local/bin
+	work           ~/work
+
+### reg - save 
+
+	$ pwd
+	/home/testuser/work/myproject
+	$ reg
+	$ show
+	bin            ~/.local/bin
+	work           ~/work
+	myproject      ~/work/myproject
+	$ reg abc
+	bin            ~/.local/bin
+	work           ~/work
+	myproject      ~/work/myproject
+	abc            ~/work/myproject
+
+### go - jump to registered directories
+
+	$ pwd
+	/home/testuser
+	go abc
+	/home/testuser/work/myproject
+
+### p - print to registered directories (look like 'go' command)
+
+	$ p bin
+	/home/testuser/.local/bin
+
+### del
+
+	$ del myproject abc
+	$ show
+	bin            ~/.local/bin
+	work           ~/work
 
 # License
 
