@@ -226,7 +226,7 @@ function _bookmark_go() {
 				if [ -f $bookmarktemp ]; then
 					if awk '{print $2}' $bookmarktemp | grep -x $path >/dev/null; then
 						_bookmark_delete $name
-						sed -i '' "/^$1/d" $bookmarktemp
+						sed -i '' "/^$1$/d" $bookmarktemp
 					fi
 				fi
 				return 0
@@ -286,7 +286,7 @@ function _bookmark_delete() {
 	local -i i=
 
 	for f do
-		local -a name=( $( awk '{print $1}' $bookmarklist | command grep -ivw -E "$f" ) )
+		local -a name=( $( awk '{print $1}' $bookmarklist | command grep -ivw -E "^$f" ) )
 		local -a path=( $( command grep -ivw -E "^$f" $bookmarklist | awk '{print $2}' ) )
 
 		if awk '{print $1}' $bookmarklist | command grep -w -E "^$f" >/dev/null; then
@@ -296,7 +296,7 @@ function _bookmark_delete() {
 			done >$bookmarklist
 
 			# delete the history
-			sed -i '' "/$f$/d" $bookmarklog 2>/dev/null
+			sed -i '' "/"$'\t'"$f$/d" $bookmarklog 2>/dev/null
 
 			# case of using -t option
 			if [ -f $bookmarktemp ]; then
