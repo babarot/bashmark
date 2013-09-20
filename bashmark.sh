@@ -83,11 +83,13 @@ function _bookmark_initialize() {
 	mkdir -p $bookmarkdir
 	touch $bookmarklist $bookmarklog $bookmarktemp
 
-	echo -en "Do you display a help? [y/N]: "
+	echo -en "Do you display a help about bashmark? [y/N]: "
 	read -t 3 ans
 	if [ "$ans" = "y" ] || [ "$ans" = "Y" ]; then
 		_bookmark_usage | ${PAGER:-less}
 		return $exit_usage
+	elif [ -z "$ans" ]; then
+		echo ''
 	fi
 	unset ans
 
