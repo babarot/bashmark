@@ -84,7 +84,7 @@ function _bookmark_initialize() {
 	touch $bookmarklist $bookmarklog $bookmarktemp
 
 	echo -en "Do you display a help? [y/N]: "
-	read ans
+	read -t 3 ans
 	if [ "$ans" = "y" ] || [ "$ans" = "Y" ]; then
 		_bookmark_usage | ${PAGER:-less}
 		return $exit_usage
