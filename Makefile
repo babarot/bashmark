@@ -1,5 +1,5 @@
 INSTALL_DIR=~/.local/bin
-INSTALL_FILE="bashmark.sh"
+INSTALL_FILE=bashmark.sh
 
 all:
 	@echo "Please run 'make install'"
@@ -7,7 +7,8 @@ all:
 install:
 	@echo ''
 	mkdir -p $(INSTALL_DIR)
-	cp $(INSTALL_FILE) $(INSTALL_DIR)
+	cp -f $(INSTALL_FILE) $(INSTALL_DIR)
+	echo 'source $(INSTALL_DIR)/$(INSTALL_FILE)' >>~/.bashrc
 	@echo ''
 	@echo 'Please restart your shell'
 	@echo ''
@@ -19,5 +20,4 @@ install:
 	@echo 'd    <bookmark_name> - Deletes the bookmarks'
 	@echo 'show                 - Lists all available bookmarks'
 	@echo ''
-	@echo 'For details, type "bookmark" on your commandline'
-	@echo 'source $(INSTALL_DIR)/$(INSTALL_FILE)' >>~/.bashrc
+	@echo 'For details, type "bookmark" or "<CMD> --help" on your commandline'
