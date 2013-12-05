@@ -276,6 +276,7 @@ function _bookmark_print() {
 function _bookmark_delete() {
 	[ ! -e $bookmarklist ] && { echo "$(basename $bookmarklist): No exist"; return 1; }
 	[ "$1" = "-h" ] || [ "$1" = "--help" ] && { _bookmark_usage ${FUNCNAME##*_}; return $exit_usage; }
+	[ "$1" = "-r" ] || [ "$1" = "--refresh" ] && { _bookmark_refresh; return 0; }
 
 	[ ! -s $bookmarklist ] && { echo "$(basename $bookmarklist) is empty."; return 1; }
 	[ $# -eq 0 ] && {
@@ -312,6 +313,37 @@ function _bookmark_delete() {
 		fi
 		unset f i name path
 	done
+}
+
+function _bookmark_refresh() {
+	local -i i=
+	local -i count=0
+	local -a name=( $( awk '{print $1}' $bookmarklist ) )
+	local -a path=( $( awk '{print $2}' $bookmarklist ) )
+	local -r line=$( wc -l <$bookmarklist )
+	local -a str=()
+	
+	for ((i=0; i<"$line"; i++)); do
+		if [ -d "${path[i]}" ]; then
+			let count++
+		else
+			_bookmark_delete "${name[i]}"
+			#str+="${name[i]}"
+			str=("${str[@]}" "${name[i]}")
+		fi
+	done
+
+	if [ $count -eq $line ]; then
+		echo "All paths are available."
+		return 1
+	else
+		#_bookmark_show
+		echo "Non-existing ${#str[*]} items have been removed."
+		echo "${#str[@]}: ${str[@]}"
+		return 0
+	fi
+
+	unset i count name path line
 }
 
 function _bookmark_candidacy() {
