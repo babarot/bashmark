@@ -41,8 +41,8 @@ function _bookmark_usage() {
 				echo -en "  If there is an argument, register by the argument name\n"
 				echo -en "  and otherwise register it current directory name.\n\n"
 				echo -en "Options:\n"
-				echo -en "  -h, --help     display this help and exit.\n\n"
-				echo -en "  -t, --temp     generate the name and path as disposable element.\n"
+				echo -en "  -h, --help     display this help and exit.\n"
+				echo -en "  -t, --temp     generate the name and path as disposable element.\n\n"
 				shift
 				;;
 			'go')
