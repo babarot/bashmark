@@ -46,7 +46,8 @@ Please try it for a day, and you will find it very effective.*
 
 	$ pwd
 	/home/testuser
-	go abc
+	$ go abc
+	$ pwd
 	/home/testuser/work/myproject
 
 ### p - print to registered directories (look like 'go' command)
