@@ -33,6 +33,7 @@ function _bookmark_usage() {
 				echo -en "  All options cannot be used together.\n\n"
 				echo -en "Options:\n"
 				echo -en "  -h, --help     display this help and exit.\n"
+				echo -en "  -e, --edit     edit bookmark-list.\n"
 				echo -en "  -p, --plane    display the list without a color.\n\n"
 				shift
 				;;
@@ -107,6 +108,11 @@ function _bookmark_show() {
 			'-h'|'--help' )
 				_bookmark_usage ${FUNCNAME##*_}
 				return $exit_usage
+				;;
+			'-e'|'--edit' )
+				"$EDITOR" $bookmarklist
+				shift 1
+				return 0
 				;;
 			'-p'|'--plane' )
 				cat $bookmarklist | sed "s $HOME ~ g"
