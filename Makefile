@@ -21,3 +21,7 @@ install:
 	@echo 'show                 - Lists all available bookmarks'
 	@echo ''
 	@echo 'For details, type "bookmark" or "<CMD> --help" on your commandline'
+
+clean:
+	@rm -rf $(INSTALL_DIR) $(INSTALL_FILE) ~/.bookmarkdir
+	@cat ~/.bashrc | (rm ~/.bashrc; sed '/bashmark/d' > ~/.bashrc)
